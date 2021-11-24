@@ -33,3 +33,13 @@ def get_subjects(peer_id):
             return subjects
     finally:
         connect.close()
+
+
+def unpin_homework(peer_id, name):
+    connect = get_connect()
+    try:
+        with connect.cursor() as cursor:
+            cursor.execute(f"DELETE FROM homework WHERE peer_id={peer_id} and name='{name}'")
+            connect.commit()
+    finally:
+        connect.close()

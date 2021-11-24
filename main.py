@@ -10,7 +10,7 @@ from db.plush_timetable import pin_timetable, get_url_id
 from timetable_parser import *
 from db.plush_config import configure
 from db.plush_qr import pin_qr, get_qr, unpin_qr, get_all_qr
-from db.plush_homework import pin_homework, get_homework, get_subjects
+from db.plush_homework import pin_homework, get_homework, get_subjects, unpin_homework
 import datetime
 
 
@@ -331,6 +331,20 @@ def index(msg_info):
                     pin_homework(msg_peer_id, name, text, attach)
                     answer = f'Записано домашнее задание по предмету {name}'
                     send_message(msg_peer_id, answer)
+            else:
+                answer = 'Что-то пошло не так...'
+                send_message(msg_peer_id, answer)
+
+        elif 'открепи дз' in msg_text.lower():
+            try:
+                name = msg_text.lower().split('открепи дз')[1].strip()
+            except:
+                name = None
+
+            if name:
+                unpin_homework(msg_peer_id, name)
+                answer = 'Успешно'
+                send_message(msg_peer_id, answer)
             else:
                 answer = 'Что-то пошло не так...'
                 send_message(msg_peer_id, answer)
