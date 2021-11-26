@@ -14,7 +14,7 @@ from db.plush_homework import pin_homework, get_homework, get_subjects, unpin_ho
 import datetime
 
 
-vk = vk_api.VkApi(token="b632fd1e9490f1b9223c9a6963fd2292d5930c6ab2c01203bc43d78a3c1aef78b9ae8fba064e0a37b2e82")
+vk = vk_api.VkApi(token="")
 vk._auth_token()
 vk.get_api()
 group_id = 208963311
