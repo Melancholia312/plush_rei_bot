@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import urllib.parse
 
-result = urllib.parse.urlparse("postgres://qpobxihgxvpgun:0466a9f70793348cb8bbba02592318898c1d3917792e4da5363ed8115ad7d0d6@ec2-3-248-87-6.eu-west-1.compute.amazonaws.com:5432/d3ogdamab7jk17")
+result = urllib.parse.urlparse("postgres")
 username = result.username
 password = result.password
 database = result.path[1:]
