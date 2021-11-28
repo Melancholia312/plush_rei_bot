@@ -9,7 +9,7 @@ def plush_init(users_list, peer_id):
                 if user['member_id'] > 0:
                     res = cursor.execute(f"SELECT user_id FROM users "
                                          f"WHERE peer_id={peer_id} and user_id={user['member_id']}")
-                    if res == 0:
+                    if not res:
                         cursor.execute(f"INSERT INTO users(peer_id, user_id, first_name, last_name) "
                                        f"VALUES({peer_id}, {user['member_id']}, '{user['first_name']}', '{user['last_name']}')")
             connect.commit()
